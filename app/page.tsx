@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import EventMoodSelector from "../src/components/EventMoodSelector"
+import Home from "@/app/page";
+import EventMoodSelector from "../src/components/EventMoodSelector";
 
 export default function SyntheticV0PageForDeployment() {
-  return <EventMoodSelector />
+  return <Home />;
 }

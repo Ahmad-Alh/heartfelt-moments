@@ -1,26 +1,26 @@
-import Image from "next/image"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const services = [
   {
     title: "Diverse Event Planning",
     description:
       "From intimate birthdays to grand weddings, we tailor every event to reflect your unique style and needs.",
-    image: "/placeholder.svg?height=256&width=384",
+    image: "/cake.jpg",
   },
   {
     title: "Captured Joy",
     description:
       "Capture every heartfelt moment with our professional photographers, ensuring your memories last a lifetime.",
-    image: "/placeholder.svg?height=256&width=384",
+    image: "/wedding.jpg",
   },
   {
     title: "Gift Wrapping",
     description:
       "Add the perfect touch with our beautifully crafted gift-wrapping services, designed to impress on any occasion.",
-    image: "/placeholder.svg?height=256&width=384",
+    image: "/gifts.jpg",
   },
-]
+];
 
 export default function Services() {
   return (
@@ -38,9 +38,10 @@ export default function Services() {
             >
               <div className="relative aspect-[3/2]">
                 <Image
-                  src={service.image || "/placeholder.svg"}
+                  src={service.image}
                   alt={service.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   priority={index === 0}
                   className="object-cover"
                 />
@@ -54,6 +55,5 @@ export default function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
