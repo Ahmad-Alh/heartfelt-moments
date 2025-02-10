@@ -1,9 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Heart, Lightbulb, Gift, CheckCircle } from "lucide-react"
+import { motion } from "framer-motion";
+import { Heart, Lightbulb, Gift, CheckCircle, LucideIcon } from "lucide-react";
 
-const reasons = [
+interface Reason {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+const reasons: Reason[] = [
   {
     title: "Personal Touch",
     description:
@@ -28,13 +34,15 @@ const reasons = [
       "From the perfect flower arrangement to the final goodbye, we obsess over every detail so you don't have to. Your peace of mind is our priority.",
     icon: CheckCircle,
   },
-]
+];
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs(): JSX.Element {
   return (
     <section className="py-16 bg-soft-beige">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">The Heartfelt Difference</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">
+          The Heartfelt Difference
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {reasons.map((reason, index) => (
             <motion.div
@@ -46,7 +54,9 @@ export default function WhyChooseUs() {
               className="bg-white p-6 rounded-lg shadow-lg"
             >
               <div className="flex items-center mb-4">
-                <reason.icon className="w-8 h-8 text-soft-rose mr-4" />
+                {reason.icon && (
+                  <reason.icon className="w-8 h-8 text-soft-rose mr-4" />
+                )}
                 <h3 className="text-xl font-semibold">{reason.title}</h3>
               </div>
               <p className="text-gray-600">{reason.description}</p>
@@ -55,6 +65,5 @@ export default function WhyChooseUs() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
